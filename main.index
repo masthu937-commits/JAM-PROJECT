@@ -1,1176 +1,312 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CampusVibe | Campus Music Community</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
+:::writing{variant="standard" id="41682" title="Complete CampusVibe index.html"} <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>CampusVibe | Campus Music Community</title> <link rel="stylesheet" href="style.css"> </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<header class="navbar"> <div class="logo"> <div class="logo-icon">♫</div> <div> <h2>CampusVibe</h2> <small>Music • Community • Campus</small> </div> </div>
 
-    <header class="navbar">
+<nav> <a href="#home">Home</a> <a href="#music">Music</a> <a href="#people">People</a> <a href="#playlists">Playlists</a> <a href="#jams">Jam Tracker</a> </nav>
 
-        <div class="logo">
+<button class="login-btn" onclick="login()">Login</button> </header>
 
-            <div class="logo-icon">♫</div>
+<section class="hero" id="home">
 
-            <div>
-                <h2>CampusVibe</h2>
-                <small>Music • Community • Campus</small>
-            </div>
+<div class="hero-content">
 
-        </div>
+<span class="hero-badge">🎧 YOUR CAMPUS • YOUR SOUND</span>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#music">Music</a>
-            <a href="#people">People</a>
-            <a href="#playlists">Playlists</a>
-            <a href="#jams">Jam Tracker</a>
-        </nav>
+<h1> Music sounds<br> <span>better together.</span> </h1>
 
-        <button class="login-btn" onclick="login()">
-            Login
-        </button>
+<p> Discover music, create collaborative playlists, meet campus musicians and enjoy music with your friends. </p>
 
-    </header>
+<div class="hero-buttons"> <button class="primary-btn" onclick="scrollToSection('music')"> 🎵 Explore Music </button>
 
+<button class="secondary-btn" onclick="scrollToSection('people')"> 👥 See Who's Listening </button> </div>
 
-    <!-- ================= HERO ================= -->
+<div class="hero-users"> <div class="user-stack"> <span>AR</span> <span>SM</span> <span>RK</span> <span>NP</span> <span>+</span> </div>
 
-    <section class="hero" id="home">
+<div> <strong>1,248+</strong> <small>students enjoying music</small> </div> </div>
 
-        <div class="hero-content">
+</div>
 
-            <span class="hero-badge">
-                🎧 YOUR CAMPUS • YOUR SOUND
-            </span>
+<div class="hero-player">
 
-            <h1>
-                Music sounds<br>
-                <span>better together.</span>
-            </h1>
+<div class="album-large">🎧</div>
 
-            <p>
-                Discover music, create collaborative playlists,
-                meet campus musicians and enjoy music with your friends.
-            </p>
+<div class="equalizer big-equalizer"> <i></i><i></i><i></i><i></i><i></i><i></i><i></i> </div>
 
-            <div class="hero-buttons">
+<h3>Campus Sunset</h3> <p>CampusVibe Collective</p>
 
-                <button class="primary-btn"
-                    onclick="scrollToSection('music')">
-                    🎵 Explore Music
-                </button>
+<div class="fake-progress"> <span></span> </div>
 
-                <button class="secondary-btn"
-                    onclick="scrollToSection('people')">
-                    👥 See Who's Listening
-                </button>
+<div class="player-controls"> <button>↶</button>
 
-            </div>
+<button class="main-play" onclick="playHero(this)"> ▶ </button>
 
-            <div class="hero-users">
+<button>↷</button> </div>
 
-                <div class="user-stack">
+</div>
 
-                    <span>AR</span>
-                    <span>SM</span>
-                    <span>RK</span>
-                    <span>NP</span>
-                    <span>+</span>
+</section>
 
-                </div>
+<section class="live-bar"> <div class="live-dot"></div> <strong>LIVE NOW</strong>
 
-                <div>
-                    <strong>1,248+</strong>
-                    <small>students enjoying music</small>
-                </div>
+<p>126 students are listening to CampusVibe right now</p>
 
-            </div>
+<div class="mini-equalizer"> <i></i><i></i><i></i><i></i><i></i> </div> </section>
 
-        </div>
+<section class="section" id="music">
 
+<div class="section-title"> <div> <span>DISCOVER MUSIC</span> <h2>Popular on Campus 🔥</h2> <p>Songs your campus community is enjoying right now.</p> </div>
 
-        <!-- MUSIC PLAYER VISUAL -->
+<button class="outline-btn" onclick="showAllMusic()"> View All </button> </div>
 
-        <div class="hero-player">
+<div class="music-search"> <input type="text" id="musicSearch" placeholder="🔍 Search songs, artists or albums..." onkeyup="searchMusic()" > </div>
 
-            <div class="album-large">
-                🎧
-            </div>
+<div class="music-list" id="musicList">
 
-            <div class="equalizer big-equalizer">
+<div class="song-card" data-name="Midnight Dreams"> <div class="song-number">01</div> <div class="album-art purple-art">🌌</div>
 
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
+<div class="song-info"> <h3>Midnight Dreams</h3> <p>Arjun Rao • Campus Originals</p> </div>
 
-            </div>
+<div class="song-listeners">👥 42 listening</div> <div class="song-duration">3:42</div>
 
-            <h3>Campus Sunset</h3>
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-            <p>CampusVibe Collective</p>
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
-            <div class="fake-progress">
-                <span></span>
-            </div>
+<div class="song-card" data-name="College Nights"> <div class="song-number">02</div> <div class="album-art pink-art">🌃</div>
 
-            <div class="player-controls">
+<div class="song-info"> <h3>College Nights</h3> <p>Sarah Mathew • Student Sessions</p> </div>
 
-                <button>↶</button>
-                <button class="main-play"
-                    onclick="playHero(this)">
-                    ▶
-                </button>
-                <button>↷</button>
+<div class="song-listeners">👥 38 listening</div> <div class="song-duration">4:08</div>
 
-            </div>
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-        </div>
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
-    </section>
+<div class="song-card" data-name="Rooftop Sunset"> <div class="song-number">03</div> <div class="album-art orange-art">🌅</div>
 
+<div class="song-info"> <h3>Rooftop Sunset</h3> <p>Rahul Kumar • Acoustic Vibes</p> </div>
 
-    <!-- ================= LIVE MUSIC BAR ================= -->
+<div class="song-listeners">👥 31 listening</div> <div class="song-duration">3:21</div>
 
-    <section class="live-bar">
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-        <div class="live-dot"></div>
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
-        <strong>LIVE NOW</strong>
+<div class="song-card" data-name="Electric Hearts"> <div class="song-number">04</div> <div class="album-art blue-art">⚡</div>
 
-        <p>
-            126 students are listening to CampusVibe
-            right now
-        </p>
+<div class="song-info"> <h3>Electric Hearts</h3> <p>Nisha Patel • Campus Rock</p> </div>
 
-        <div class="mini-equalizer">
+<div class="song-listeners">👥 27 listening</div> <div class="song-duration">4:16</div>
 
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-        </div>
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
-    </section>
+<div class="song-card" data-name="Rainy Library"> <div class="song-number">05</div> <div class="album-art green-art">🌧️</div>
 
+<div class="song-info"> <h3>Rainy Library</h3> <p>Campus Lo-Fi • Study Room</p> </div>
 
-    <!-- ================= MUSIC ================= -->
+<div class="song-listeners">👥 23 listening</div> <div class="song-duration">2:58</div>
 
-    <section class="section" id="music">
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-        <div class="section-title">
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
-            <div>
+<div class="song-card" data-name="Friday Fever"> <div class="song-number">06</div> <div class="album-art red-art">🔥</div>
 
-                <span>DISCOVER MUSIC</span>
+<div class="song-info"> <h3>Friday Fever</h3> <p>Campus DJs • Weekend Mix</p> </div>
 
-                <h2>Popular on Campus 🔥</h2>
+<div class="song-listeners">👥 19 listening</div> <div class="song-duration">3:55</div>
 
-                <p>
-                    Songs your campus community is enjoying right now.
-                </p>
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-            </div>
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
-            <button class="outline-btn"
-                onclick="showAllMusic()">
-                View All
-            </button>
+<div class="song-card" data-name="Acoustic Memories"> <div class="song-number">07</div> <div class="album-art violet-art">🎸</div>
 
-        </div>
+<div class="song-info"> <h3>Acoustic Memories</h3> <p>Open Mic Club • Live</p> </div>
 
+<div class="song-listeners">👥 16 listening</div> <div class="song-duration">4:32</div>
 
-        <!-- SEARCH -->
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-        <div class="music-search">
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
-            <input
-                type="text"
-                id="musicSearch"
-                placeholder="🔍 Search songs, artists or albums..."
-                onkeyup="searchMusic()"
-            >
+<div class="song-card" data-name="Study Mode"> <div class="song-number">08</div> <div class="album-art cyan-art">📚</div>
 
-        </div>
+<div class="song-info"> <h3>Study Mode</h3> <p>Lo-Fi Society • Focus Beats</p> </div>
 
+<div class="song-listeners">👥 14 listening</div> <div class="song-duration">5:10</div>
 
-        <!-- MUSIC LIST -->
+<button class="like-btn" onclick="likeSong(this)">♡</button>
 
-        <div class="music-list" id="musicList">
+<button class="song-play" onclick="playSong(this)">▶</button> </div>
 
+</div> </section>
 
-            <!-- SONG 1 -->
+<section class="section people-section" id="people">
 
-            <div class="song-card"
-                data-name="Midnight Dreams">
+<div class="section-title"> <div> <span>CAMPUS ACTIVITY</span> <h2>People Are Enjoying Music 🎧</h2> <p>See what students around campus are listening to.</p> </div> </div>
 
-                <div class="song-number">
-                    01
-                </div>
+<div class="people-grid">
 
-                <div class="album-art purple-art">
-                    🌌
-                </div>
+<div class="person-card"> <div class="person-top"> <div class="avatar purple">AR</div> <div class="online"></div> </div>
 
-                <div class="song-info">
+<h3>Arjun Rao</h3> <p>🎸 Guitarist</p>
 
-                    <h3>Midnight Dreams</h3>
+<div class="listening"> <div class="tiny-art purple-art">🌌</div>
 
-                    <p>Arjun Rao • Campus Originals</p>
+<div> <small>Listening to</small> <strong>Midnight Dreams</strong> </div>
 
-                </div>
+<div class="mini-bars"> <i></i><i></i><i></i><i></i> </div> </div> </div>
 
-                <div class="song-listeners">
-                    👥 42 listening
-                </div>
+<div class="person-card"> <div class="person-top"> <div class="avatar pink">SM</div> <div class="online"></div> </div>
 
-                <div class="song-duration">
-                    3:42
-                </div>
+<h3>Sarah Mathew</h3> <p>🎤 Vocalist</p>
 
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
+<div class="listening"> <div class="tiny-art pink-art">🌃</div>
 
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
+<div> <small>Listening to</small> <strong>College Nights</strong> </div>
 
-            </div>
+<div class="mini-bars"> <i></i><i></i><i></i><i></i> </div> </div> </div>
 
+<div class="person-card"> <div class="person-top"> <div class="avatar blue">RK</div> <div class="online"></div> </div>
 
-            <!-- SONG 2 -->
+<h3>Rahul Kumar</h3> <p>🥁 Drummer</p>
 
-            <div class="song-card"
-                data-name="College Nights">
+<div class="listening"> <div class="tiny-art orange-art">🌅</div>
 
-                <div class="song-number">
-                    02
-                </div>
+<div> <small>Listening to</small> <strong>Rooftop Sunset</strong> </div>
 
-                <div class="album-art pink-art">
-                    🌃
-                </div>
+<div class="mini-bars"> <i></i><i></i><i></i><i></i> </div> </div> </div>
 
-                <div class="song-info">
+<div class="person-card"> <div class="person-top"> <div class="avatar orange">NP</div> <div class="online"></div> </div>
 
-                    <h3>College Nights</h3>
+<h3>Nisha Patel</h3> <p>🎹 Keyboardist</p>
 
-                    <p>Sarah Mathew • Student Sessions</p>
+<div class="listening"> <div class="tiny-art blue-art">⚡</div>
 
-                </div>
+<div> <small>Listening to</small> <strong>Electric Hearts</strong> </div>
 
-                <div class="song-listeners">
-                    👥 38 listening
-                </div>
+<div class="mini-bars"> <i></i><i></i><i></i><i></i> </div> </div> </div>
 
-                <div class="song-duration">
-                    4:08
-                </div>
+</div> </section>
 
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
+<section class="section" id="playlists">
 
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
+<div class="section-title"> <div> <span>COLLABORATE</span> <h2>Campus Playlists 🎵</h2> <p>Playlists created by students for students.</p> </div>
 
-            </div>
+<button class="primary-btn" onclick="openPlaylist()"> + Create Playlist </button> </div>
 
+<div class="playlist-grid">
 
-            <!-- SONG 3 -->
+<div class="playlist-card"> <div class="playlist-image purple-art"> 📚 <span class="playlist-count">42 songs</span> </div>
 
-            <div class="song-card"
-                data-name="Rooftop Sunset">
+<div class="playlist-body"> <h3>Late Night Study</h3> <p>Calm beats for assignments and exams.</p> <div class="playlist-members">👥 18 students</div> <button onclick="playPlaylist(this)">▶ Play Playlist</button> </div> </div>
 
-                <div class="song-number">
-                    03
-                </div>
+<div class="playlist-card"> <div class="playlist-image pink-art"> 🎉 <span class="playlist-count">68 songs</span> </div>
 
-                <div class="album-art orange-art">
-                    🌅
-                </div>
+<div class="playlist-body"> <h3>Friday Night Fever</h3> <p>The ultimate campus party collection.</p> <div class="playlist-members">👥 34 students</div> <button onclick="playPlaylist(this)">▶ Play Playlist</button> </div> </div>
 
-                <div class="song-info">
+<div class="playlist-card"> <div class="playlist-image blue-art"> 🌙 <span class="playlist-count">31 songs</span> </div>
 
-                    <h3>Rooftop Sunset</h3>
+<div class="playlist-body"> <h3>Rooftop Vibes</h3> <p>Relaxing music for peaceful evenings.</p> <div class="playlist-members">👥 21 students</div> <button onclick="playPlaylist(this)">▶ Play Playlist</button> </div> </div>
 
-                    <p>Rahul Kumar • Acoustic Vibes</p>
+<div class="playlist-card"> <div class="playlist-image orange-art"> 🎸 <span class="playlist-count">53 songs</span> </div>
 
-                </div>
+<div class="playlist-body"> <h3>Campus Rock Stars</h3> <p>Guitar-heavy songs from student bands.</p> <div class="playlist-members">👥 29 students</div> <button onclick="playPlaylist(this)">▶ Play Playlist</button> </div> </div>
 
-                <div class="song-listeners">
-                    👥 31 listening
-                </div>
+</div> </section>
 
-                <div class="song-duration">
-                    3:21
-                </div>
+<section class="section jam-section" id="jams">
 
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
+<div class="section-title"> <div> <span>COLLABORATE</span> <h2>Jam Session Tracker 🎸</h2> <p>Join musicians and create music together.</p> </div>
 
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
+<button class="primary-btn" onclick="openJam()"> + Add Jam </button> </div>
 
-            </div>
+<div class="jam-grid">
 
+<div class="jam-card">
 
-            <!-- SONG 4 -->
+<div class="jam-date"> <strong>08</strong> <span>OCT</span> </div>
 
-            <div class="song-card"
-                data-name="Electric Hearts">
+<div class="jam-info"> <h3>Acoustic Evening</h3> <p>📍 Music Room • 6:00 PM</p> <small>👥 8 students joined</small> </div>
 
-                <div class="song-number">
-                    04
-                </div>
+<button onclick="joinJam(this)">Join</button> </div>
 
-                <div class="album-art blue-art">
-                    ⚡
-                </div>
+<div class="jam-card">
 
-                <div class="song-info">
+<div class="jam-date pink-date"> <strong>09</strong> <span>OCT</span> </div>
 
-                    <h3>Electric Hearts</h3>
+<div class="jam-info"> <h3>Battle of Bands</h3> <p>📍 Open Auditorium • 7:30 PM</p> <small>👥 12 students joined</small> </div>
 
-                    <p>Nisha Patel • Campus Rock</p>
+<button onclick="joinJam(this)">Join</button> </div>
 
-                </div>
+<div class="jam-card">
 
-                <div class="song-listeners">
-                    👥 27 listening
-                </div>
+<div class="jam-date blue-date"> <strong>10</strong> <span>OCT</span> </div>
 
-                <div class="song-duration">
-                    4:16
-                </div>
+<div class="jam-info"> <h3>Lo-Fi Jam Night</h3> <p>📍 Student Lounge • 8:00 PM</p> <small>👥 6 students joined</small> </div>
 
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
+<button onclick="joinJam(this)">Join</button> </div>
 
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
+</div> </section>
 
-            </div>
+<footer>
 
+<div class="footer-logo">♫ CampusVibe</div>
 
-            <!-- SONG 5 -->
+<p> Bringing campus musicians together, one song at a time. </p>
 
-            <div class="song-card"
-                data-name="Rainy Library">
+<div class="footer-links"> <a href="#home">Home</a> <a href="#music">Music</a> <a href="#people">Community</a> <a href="#jams">Jam Sessions</a> </div>
 
-                <div class="song-number">
-                    05
-                </div>
+<small>© 2026 CampusVibe • College Project</small>
 
-                <div class="album-art green-art">
-                    🌧️
-                </div>
+</footer>
 
-                <div class="song-info">
+<div class="modal" id="playlistModal">
 
-                    <h3>Rainy Library</h3>
+<div class="modal-box">
 
-                    <p>Campus Lo-Fi • Study Room</p>
+<button class="close" onclick="closePlaylist()">×</button>
 
-                </div>
+<h2>🎵 Create Playlist</h2>
 
-                <div class="song-listeners">
-                    👥 23 listening
-                </div>
+<p>Create a playlist and share it with your campus.</p>
 
-                <div class="song-duration">
-                    2:58
-                </div>
+<input id="playlistName" type="text" placeholder="Playlist name" >
 
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
+<textarea id="playlistDescription" placeholder="Describe your playlist..." ></textarea>
 
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
+<button class="primary-btn full" onclick="createPlaylist()"> Create Playlist </button>
 
-            </div>
+</div> </div>
 
+<div class="modal" id="jamModal">
 
-            <!-- SONG 6 -->
+<div class="modal-box">
 
-            <div class="song-card"
-                data-name="Friday Fever">
+<button class="close" onclick="closeJam()">×</button>
 
-                <div class="song-number">
-                    06
-                </div>
+<h2>🎸 Create Jam Session</h2>
 
-                <div class="album-art red-art">
-                    🔥
-                </div>
+<p>Invite your campus musicians.</p>
 
-                <div class="song-info">
+<input id="jamName" type="text" placeholder="Session name" >
 
-                    <h3>Friday Fever</h3>
+<input id="jamLocation" type="text" placeholder="Location" >
 
-                    <p>Campus DJs • Weekend Mix</p>
+<input id="jamTime" type="time" >
 
-                </div>
+<button class="primary-btn full" onclick="createJam()"> Create Session </button>
 
-                <div class="song-listeners">
-                    👥 19 listening
-                </div>
+</div> </div>
 
-                <div class="song-duration">
-                    3:55
-                </div>
+<div class="notification" id="notification"> <span>✓</span> <p>Success!</p> </div>
 
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
+<script src="script.js"></script>
 
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
-
-            </div>
-
-
-            <!-- SONG 7 -->
-
-            <div class="song-card"
-                data-name="Acoustic Memories">
-
-                <div class="song-number">
-                    07
-                </div>
-
-                <div class="album-art violet-art">
-                    🎸
-                </div>
-
-                <div class="song-info">
-
-                    <h3>Acoustic Memories</h3>
-
-                    <p>Open Mic Club • Live</p>
-
-                </div>
-
-                <div class="song-listeners">
-                    👥 16 listening
-                </div>
-
-                <div class="song-duration">
-                    4:32
-                </div>
-
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
-
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
-
-            </div>
-
-
-            <!-- SONG 8 -->
-
-            <div class="song-card"
-                data-name="Study Mode">
-
-                <div class="song-number">
-                    08
-                </div>
-
-                <div class="album-art cyan-art">
-                    📚
-                </div>
-
-                <div class="song-info">
-
-                    <h3>Study Mode</h3>
-
-                    <p>Lo-Fi Society • Focus Beats</p>
-
-                </div>
-
-                <div class="song-listeners">
-                    👥 14 listening
-                </div>
-
-                <div class="song-duration">
-                    5:10
-                </div>
-
-                <button class="like-btn"
-                    onclick="likeSong(this)">
-                    ♡
-                </button>
-
-                <button class="song-play"
-                    onclick="playSong(this)">
-                    ▶
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PEOPLE LISTENING ================= -->
-
-    <section class="section people-section"
-        id="people">
-
-        <div class="section-title">
-
-            <div>
-
-                <span>CAMPUS ACTIVITY</span>
-
-                <h2>People Are Enjoying Music 🎧</h2>
-
-                <p>
-                    See what students around campus are listening to.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="people-grid">
-
-
-            <div class="person-card">
-
-                <div class="person-top">
-
-                    <div class="avatar purple">
-                        AR
-                    </div>
-
-                    <div class="online"></div>
-
-                </div>
-
-                <h3>Arjun Rao</h3>
-
-                <p>🎸 Guitarist</p>
-
-                <div class="listening">
-
-                    <div class="tiny-art purple-art">
-                        🌌
-                    </div>
-
-                    <div>
-
-                        <small>Listening to</small>
-
-                        <strong>Midnight Dreams</strong>
-
-                    </div>
-
-                    <div class="mini-bars">
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="person-card">
-
-                <div class="person-top">
-
-                    <div class="avatar pink">
-                        SM
-                    </div>
-
-                    <div class="online"></div>
-
-                </div>
-
-                <h3>Sarah Mathew</h3>
-
-                <p>🎤 Vocalist</p>
-
-                <div class="listening">
-
-                    <div class="tiny-art pink-art">
-                        🌃
-                    </div>
-
-                    <div>
-
-                        <small>Listening to</small>
-
-                        <strong>College Nights</strong>
-
-                    </div>
-
-                    <div class="mini-bars">
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="person-card">
-
-                <div class="person-top">
-
-                    <div class="avatar blue">
-                        RK
-                    </div>
-
-                    <div class="online"></div>
-
-                </div>
-
-                <h3>Rahul Kumar</h3>
-
-                <p>🥁 Drummer</p>
-
-                <div class="listening">
-
-                    <div class="tiny-art orange-art">
-                        🌅
-                    </div>
-
-                    <div>
-
-                        <small>Listening to</small>
-
-                        <strong>Rooftop Sunset</strong>
-
-                    </div>
-
-                    <div class="mini-bars">
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="person-card">
-
-                <div class="person-top">
-
-                    <div class="avatar orange">
-                        NP
-                    </div>
-
-                    <div class="online"></div>
-
-                </div>
-
-                <h3>Nisha Patel</h3>
-
-                <p>🎹 Keyboardist</p>
-
-                <div class="listening">
-
-                    <div class="tiny-art blue-art">
-                        ⚡
-                    </div>
-
-                    <div>
-
-                        <small>Listening to</small>
-
-                        <strong>Electric Hearts</strong>
-
-                    </div>
-
-                    <div class="mini-bars">
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PLAYLISTS ================= -->
-
-    <section class="section"
-        id="playlists">
-
-        <div class="section-title">
-
-            <div>
-
-                <span>COLLABORATE</span>
-
-                <h2>Campus Playlists 🎵</h2>
-
-                <p>
-                    Playlists created by students for students.
-                </p>
-
-            </div>
-
-            <button class="primary-btn"
-                onclick="openPlaylist()">
-                + Create Playlist
-            </button>
-
-        </div>
-
-
-        <div class="playlist-grid">
-
-
-            <div class="playlist-card">
-
-                <div class="playlist-image purple-art">
-                    📚
-
-                    <span class="playlist-count">
-                        42 songs
-                    </span>
-
-                </div>
-
-                <div class="playlist-body">
-
-                    <h3>Late Night Study</h3>
-
-                    <p>
-                        Calm beats for assignments and exams.
-                    </p>
-
-                    <div class="playlist-members">
-                        👥 18 students
-                    </div>
-
-                    <button onclick="playPlaylist(this)">
-                        ▶ Play Playlist
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="playlist-card">
-
-                <div class="playlist-image pink-art">
-                    🎉
-
-                    <span class="playlist-count">
-                        68 songs
-                    </span>
-
-                </div>
-
-                <div class="playlist-body">
-
-                    <h3>Friday Night Fever</h3>
-
-                    <p>
-                        The ultimate campus party collection.
-                    </p>
-
-                    <div class="playlist-members">
-                        👥 34 students
-                    </div>
-
-                    <button onclick="playPlaylist(this)">
-                        ▶ Play Playlist
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="playlist-card">
-
-                <div class="playlist-image blue-art">
-                    🌙
-
-                    <span class="playlist-count">
-                        31 songs
-                    </span>
-
-                </div>
-
-                <div class="playlist-body">
-
-                    <h3>Rooftop Vibes</h3>
-
-                    <p>
-                        Relaxing music for peaceful evenings.
-                    </p>
-
-                    <div class="playlist-members">
-                        👥 21 students
-                    </div>
-
-                    <button onclick="playPlaylist(this)">
-                        ▶ Play Playlist
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="playlist-card">
-
-                <div class="playlist-image orange-art">
-                    🎸
-
-                    <span class="playlist-count">
-                        53 songs
-                    </span>
-
-                </div>
-
-                <div class="playlist-body">
-
-                    <h3>Campus Rock Stars</h3>
-
-                    <p>
-                        Guitar-heavy songs from student bands.
-                    </p>
-
-                    <div class="playlist-members">
-                        👥 29 students
-                    </div>
-
-                    <button onclick="playPlaylist(this)">
-                        ▶ Play Playlist
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= JAM TRACKER ================= -->
-
-    <section class="section jam-section"
-        id="jams">
-
-        <div class="section-title">
-
-            <div>
-
-                <span>COLLABORATE</span>
-
-                <h2>Jam Session Tracker 🎸</h2>
-
-                <p>
-                    Join musicians and create music together.
-                </p>
-
-            </div>
-
-            <button class="primary-btn"
-                onclick="openJam()">
-                + Add Jam
-            </button>
-
-        </div>
-
-
-        <div class="jam-grid">
-
-
-            <div class="jam-card">
-
-                <div class="jam-date">
-
-                    <strong>08</strong>
-                    <span>OCT</span>
-
-                </div>
-
-                <div class="jam-info">
-
-                    <h3>Acoustic Evening</h3>
-
-                    <p>
-                        📍 Music Room • 6:00 PM
-                    </p>
-
-                    <small>
-                        👥 8 students joined
-                    </small>
-
-                </div>
-
-                <button onclick="joinJam(this)">
-                    Join
-                </button>
-
-            </div>
-
-
-            <div class="jam-card">
-
-                <div class="jam-date pink-date">
-
-                    <strong>09</strong>
-                    <span>OCT</span>
-
-                </div>
-
-                <div class="jam-info">
-
-                    <h3>Battle of Bands</h3>
-
-                    <p>
-                        📍 Open Auditorium • 7:30 PM
-                    </p>
-
-                    <small>
-                        👥 12 students joined
-                    </small>
-
-                </div>
-
-                <button onclick="joinJam(this)">
-                    Join
-                </button>
-
-            </div>
-
-
-            <div class="jam-card">
-
-                <div class="jam-date blue-date">
-
-                    <strong>10</strong>
-                    <span>OCT</span>
-
-                </div>
-
-                <div class="jam-info">
-
-                    <h3>Lo-Fi Jam Night</h3>
-
-                    <p>
-                        📍 Student Lounge • 8:00 PM
-                    </p>
-
-                    <small>
-                        👥 6 students joined
-                    </small>
-
-                </div>
-
-                <button onclick="joinJam(this)">
-                    Join
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="footer-logo">
-            ♫ CampusVibe
-        </div>
-
-        <p>
-            Bringing campus musicians together,
-            one song at a time.
-        </p>
-
-        <div class="footer-links">
-
-            <a href="#home">Home</a>
-            <a href="#music">Music</a>
-            <a href="#people">Community</a>
-            <a href="#jams">Jam Sessions</a>
-
-        </div>
-
-        <small>
-            © 2026 CampusVibe • College Project
-        </small>
-
-    </footer>
-
-
-    <!-- ================= PLAYLIST MODAL ================= -->
-
-    <div class="modal"
-        id="playlistModal">
-
-        <div class="modal-box">
-
-            <button class="close"
-                onclick="closePlaylist()">
-                ×
-            </button>
-
-            <h2>🎵 Create Playlist</h2>
-
-            <p>
-                Create a playlist and share it with your campus.
-            </p>
-
-            <input
-                id="playlistName"
-                type="text"
-                placeholder="Playlist name"
-            >
-
-            <textarea
-                id="playlistDescription"
-                placeholder="Describe your playlist..."
-            ></textarea>
-
-            <button class="primary-btn full"
-                onclick="createPlaylist()">
-                Create Playlist
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= JAM MODAL ================= -->
-
-    <div class="modal"
-        id="jamModal">
-
-        <div class="modal-box">
-
-            <button class="close"
-                onclick="closeJam()">
-                ×
-            </button>
-
-            <h2>🎸 Create Jam Session</h2>
-
-            <p>
-                Invite your campus musicians.
-            </p>
-
-            <input
-                id="jamName"
-                type="text"
-                placeholder="Session name"
-            >
-
-            <input
-                id="jamLocation"
-                type="text"
-                placeholder="Location"
-            >
-
-            <input
-                id="jamTime"
-                type="time"
-            >
-
-            <button class="primary-btn full"
-                onclick="createJam()">
-                Create Session
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= NOTIFICATION ================= -->
-
-    <div class="notification"
-        id="notification">
-
-        <span>✓</span>
-
-        <p>Success!</p>
-
-    </div>
-
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+</body> </html>
