@@ -1,249 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBeats - Campus Music Community</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
 
-const songs = [
-    { id: 1, title: "Samajavaragamana", artist: "Sid Sriram", category: "romantic", icon: "💜", color: "c1" },
-    { id: 2, title: "Inkem Inkem Inkem Kaavaale", artist: "Sid Sriram", category: "romantic", icon: "🌸", color: "c2" },
-    { id: 3, title: "Butta Bomma", artist: "Armaan Malik", category: "energetic", icon: "✨", color: "c3" },
-    { id: 4, title: "Naatu Naatu", artist: "Rahul Sipligunj, Kaala Bhairava", category: "energetic", icon: "🔥", color: "c4" },
-    { id: 5, title: "Srivalli", artist: "Sid Sriram", category: "melody", icon: "🌿", color: "c5" },
-    { id: 6, title: "Oo Antava", artist: "Indravathi Chauhan", category: "energetic", icon: "🎧", color: "c6" },
-    { id: 7, title: "Adiga Adiga", artist: "Sid Sriram", category: "romantic", icon: "🌷", color: "c7" },
-    { id: 8, title: "Inthandham", artist: "S. P. Charan", category: "romantic", icon: "🌙", color: "c8" },
-    { id: 9, title: "Kurchi Madathapetti", artist: "Sahithi Chaganti, Sri Krishna", category: "energetic", icon: "⚡", color: "c1" },
-    { id: 10, title: "Chuttamalle", artist: "Shilpa Rao", category: "romantic", icon: "💖", color: "c2" },
-    { id: 11, title: "Oh Sita Hey Rama", artist: "Vishal Chandrashekhar", category: "melody", icon: "🌹", color: "c3" },
-    { id: 12, title: "Aradhya", artist: "Sid Sriram, Chinmayi", category: "romantic", icon: "🦋", color: "c4" },
-    { id: 13, title: "Ramulo Ramula", artist: "Anurag Kulkarni", category: "energetic", icon: "🎉", color: "c5" },
-    { id: 14, title: "Vellipomaakey", artist: "Sid Sriram", category: "melody", icon: "🌌", color: "c6" },
-    { id: 15, title: "Priyathama Priyathama", artist: "Chinmayi", category: "melody", icon: "🌼", color: "c7" },
-    { id: 16, title: "Life of Ram", artist: "Pradeep Kumar", category: "melody", icon: "🌄", color: "c8" }
-];
+    <div class="app">
 
-let playlist = [];
-let joined = false;
-let participants = 0;
-let totalVotes = 0;
-
-const songGrid = document.getElementById("songGrid");
-const playlistItems = document.getElementById("playlistItems");
-const searchInput = document.getElementById("searchInput");
-const categoryFilter = document.getElementById("categoryFilter");
-const toast = document.getElementById("toast");
-
-function renderSongs() {
-    const search = searchInput.value.toLowerCase().trim();
-    const category = categoryFilter.value;
-
-    const filteredSongs = songs.filter(song => {
-        const matchesSearch =
-            song.title.toLowerCase().includes(search) ||
-            song.artist.toLowerCase().includes(search);
-
-        const matchesCategory =
-            category === "all" || song.category === category;
-
-        return matchesSearch && matchesCategory;
-    });
-
-    if (filteredSongs.length === 0) {
-        songGrid.innerHTML = `
-            <div class="no-results">
-                No songs found. Try another search!
-            </div>`;
-        return;
-    }
-
-    songGrid.innerHTML = filteredSongs.map(song => {
-        const isAdded = playlist.some(item => item.id === song.id);
-
-        return `
-            <article class="song-card">
-                <div class="cover ${song.color}">
-                    <span>${song.icon}</span>
-                </div>
-
-                <div class="song-info">
-                    <h3 title="${song.title}">${song.title}</h3>
-                    <p>${song.artist}</p>
-
-                    <div class="song-actions">
-                        <span class="song-tag">
-                            ${song.category.toUpperCase()}
-                        </span>
-
-                        <button
-                            class="add-btn ${isAdded ? "added" : ""}"
-                            data-add="${song.id}"
-                            aria-label="Add ${song.title} to playlist"
-                            title="${isAdded ? "Already added" : "Add to playlist"}">
-                            ${isAdded ? "✓" : "+"}
-                        </button>
-                    </div>
-                </div>
-            </article>`;
-    }).join("");
-}
-
-function addSong(id) {
-    const song = songs.find(item => item.id === id);
-
-    if (!song) return;
-
-    if (playlist.some(item => item.id === id)) {
-        showToast("This song is already in your playlist!");
-        return;
-    }
-
-    playlist.push({ ...song, votes: 0 });
-
-    renderSongs();
-    renderPlaylist();
-    updateStats();
-
-    showToast(song.title + " added to your playlist!");
-}
-
-function renderPlaylist() {
-    document.getElementById("playlistBadge").textContent =
-        playlist.length + (playlist.length === 1 ? " song" : " songs");
-
-    document.getElementById("emptyPlaylist").style.display =
-        playlist.length === 0 ? "block" : "none";
-
-    if (playlist.length === 0) {
-        playlistItems.innerHTML = "";
-        return;
-    }
-
-    playlistItems.innerHTML = playlist.map(song => `
-        <div class="playlist-item">
-            <div class="mini-cover ${song.color}">${song.icon}</div>
-
-            <div class="playlist-item-info">
-                <strong>${song.title}</strong>
-                <small>${song.artist}</small>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">♫</span>
+                <span>CampusBeats</span>
             </div>
 
-            <button class="vote-btn" data-vote="${song.id}"
-                title="Vote for this song">
-                ♡ ${song.votes}
-            </button>
+            <p class="menu-title">MENU</p>
 
-            <button class="remove-btn" data-remove="${song.id}"
-                title="Remove song"
-                style="background:#fff0ef;color:#bd6666">
-                ×
-            </button>
-        </div>
-    `).join("");
-}
+            <nav>
+                <a href="#home" class="nav-link active">⌂ Home</a>
+                <a href="#songs" class="nav-link">♫ Discover Songs</a>
+                <a href="#playlist" class="nav-link">☷ Shared Playlist</a>
+                <a href="#jam" class="nav-link">🎧 Jam Sessions</a>
+            </nav>
 
-function updateStats() {
-    document.getElementById("songCount").textContent = playlist.length;
-    document.getElementById("memberCount").textContent = participants;
-    document.getElementById("voteCount").textContent = totalVotes;
-}
+            <div class="sidebar-bottom">
+                <div class="music-note">♫</div>
+                <h3>Music connects us!</h3>
+                <p>Discover songs and create memories together.</p>
+            </div>
+        </aside>
 
-function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add("show");
+        <!-- Main Content -->
+        <main class="main-content" id="home">
 
-    clearTimeout(showToast.timer);
+            <!-- Header -->
+            <header class="topbar">
+                <div>
+                    <p class="welcome">YOUR CAMPUS, YOUR SOUND</p>
+                    <h2>Hey, Music Lover! 👋</h2>
+                </div>
 
-    showToast.timer = setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2300);
-}
+                <div class="profile">
+                    <span class="online-dot"></span>
+                    <span>Campus Member</span>
+                    <div class="profile-avatar">🎵</div>
+                </div>
+            </header>
 
-songGrid.addEventListener("click", event => {
-    const button = event.target.closest("[data-add]");
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="hero-label">🎶 YOUR CAMPUS MUSIC HUB</span>
 
-    if (button) {
-        addSong(Number(button.dataset.add));
-    }
-});
+                    <h1>Good music.<br>
+                        Great friends.<br>
+                        <span>Better memories.</span>
+                    </h1>
 
-playlistItems.addEventListener("click", event => {
-    const voteButton = event.target.closest("[data-vote]");
-    const removeButton = event.target.closest("[data-remove]");
+                    <p>
+                        Discover your favorite Telugu hits, build a shared
+                        playlist, and join your campus jam sessions.
+                    </p>
 
-    if (voteButton) {
-        const song = playlist.find(
-            item => item.id === Number(voteButton.dataset.vote)
-        );
+                    <a href="#songs" class="primary-btn">
+                        Explore Songs →
+                    </a>
+                </div>
 
-        if (song) {
-            song.votes++;
-            totalVotes++;
+                <div class="hero-art">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="vinyl">♫</div>
+                    <div class="floating-note note-one">♪</div>
+                    <div class="floating-note note-two">♫</div>
+                    <div class="sound-bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </section>
 
-            renderPlaylist();
-            updateStats();
-            showToast("Your vote has been counted! ♡");
-        }
-    }
+            <!-- Statistics -->
+            <section class="stats">
+                <div class="stat-card">
+                    <div class="stat-icon purple">♫</div>
+                    <div>
+                        <p>Total Songs</p>
+                        <h2 id="songCount">0</h2>
+                    </div>
+                </div>
 
-    if (removeButton) {
-        const id = Number(removeButton.dataset.remove);
-        playlist = playlist.filter(song => song.id !== id);
+                <div class="stat-card">
+                    <div class="stat-icon pink">👥</div>
+                    <div>
+                        <p>Jam Participants</p>
+                        <h2 id="memberCount">0</h2>
+                    </div>
+                </div>
 
-        renderSongs();
-        renderPlaylist();
-        updateStats();
+                <div class="stat-card">
+                    <div class="stat-icon orange">♡</div>
+                    <div>
+                        <p>Total Votes</p>
+                        <h2 id="voteCount">0</h2>
+                    </div>
+                </div>
+            </section>
 
-        showToast("Song removed from playlist.");
-    }
-});
+            <!-- Telugu Songs -->
+            <section class="songs-section" id="songs">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-subtitle">FIND YOUR VIBE</p>
+                        <h2>Trending Telugu Hits 🔥</h2>
+                        <p class="section-description">
+                            Pick your favorites and add them to the campus playlist.
+                        </p>
+                    </div>
+                </div>
 
-searchInput.addEventListener("input", renderSongs);
-categoryFilter.addEventListener("change", renderSongs);
+                <!-- Search and Filter -->
+                <div class="search-controls">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="🔍 Search Telugu songs or movies..."
+                    >
 
-document.getElementById("clearPlaylist").addEventListener("click", () => {
-    if (playlist.length === 0) {
-        showToast("Your playlist is already empty.");
-        return;
-    }
+                    <select id="categoryFilter">
+                        <option value="all">All Songs</option>
+                        <option value="melody">Melody</option>
+                        <option value="romantic">Romantic</option>
+                        <option value="energetic">Energetic</option>
+                        <option value="mass">Mass</option>
+                    </select>
+                </div>
 
-    playlist = [];
-    renderSongs();
-    renderPlaylist();
-    updateStats();
+                <!-- Songs appear here through JavaScript -->
+                <div class="song-grid" id="songGrid"></div>
+            </section>
 
-    showToast("Playlist cleared successfully.");
-});
+            <!-- Playlist and Jam Session -->
+            <section class="lower-grid">
 
-document.getElementById("joinJam").addEventListener("click", () => {
-    const jamTime = document.getElementById("jamTime").value;
+                <!-- Shared Playlist -->
+                <div class="panel" id="playlist">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-subtitle">MADE TOGETHER</p>
+                            <h2>Shared Playlist 🎧</h2>
+                        </div>
 
-    if (joined) {
-        joined = false;
-        participants--;
-        document.getElementById("joinJam").textContent = "Join the jam ↗";
-        document.getElementById("jamStatus").textContent = "You left the session.";
-        showToast("You left the jam session.");
-    } else {
-        if (jamTime && new Date(jamTime) < new Date()) {
-            showToast("Please choose a future date and time.");
-            return;
-        }
+                        <span class="playlist-badge" id="playlistBadge">0 songs</span>
+                    </div>
 
-        joined = true;
-        participants++;
-        document.getElementById("joinJam").textContent = "Leave the jam ×";
-        document.getElementById("jamStatus").textContent =
-            jamTime ? "Session time selected!" : "You're in the jam!";
-        showToast("Welcome to the campus jam! 🎸");
-    }
+                    <p class="section-description">
+                        Songs selected by your campus community.
+                    </p>
 
-    document.getElementById("participantText").textContent =
-        participants + (participants === 1 ? " person joined" : " people joined");
+                    <div id="playlistItems" class="playlist-items"></div>
 
-    document.getElementById("avatars").innerHTML =
-        participants > 0 ? `<span>🎵</span>` : `<span>♫</span>`;
+                    <div id="emptyPlaylist" class="empty-state">
+                        <div class="empty-icon">♫</div>
+                        <h3>Your playlist is waiting!</h3>
+                        <p>Add songs from Trending Telugu Hits to get started.</p>
+                    </div>
 
-    updateStats();
-});
+                    <button class="clear-btn" id="clearPlaylist">
+                        Clear Playlist
+                    </button>
+                </div>
 
-// Initial page setup
-renderSongs();
-renderPlaylist();
-updateStats();
+                <!-- Jam Session -->
+                <div class="panel jam-panel" id="jam">
+                    <p class="section-subtitle">LET'S MAKE SOME NOISE</p>
+                    <h2>Campus Jam Session 🎸</h2>
+
+                    <div class="jam-banner">
+                        <div class="jam-emoji">🎤</div>
+                        <div>
+                            <span class="live-label">● CAMPUS JAM</span>
+                            <h3>Friday Music Meetup</h3>
+                            <p>Bring your friends. Bring your vibe.</p>
+                        </div>
+                    </div>
+
+                    <div class="jam-details">
+                        <div class="detail-row">
+                            <span>📍 Location</span>
+                            <strong>College Music Corner</strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>🕒 Time</span>
+                            <strong id="jamTime">Friday, 4:00 PM</strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>🎵 Status</span>
+                            <strong id="jamStatus">Open to Join</strong>
+                        </div>
+                    </div>
+
+                    <div class="participants">
+                        <div class="avatars" id="avatars">
+                            <span>🎧</span>
+                            <span>🎸</span>
+                            <span>🎤</span>
+                        </div>
+
+                        <p id="participantText">Join your campus music crew!</p>
+                    </div>
+
+                    <button class="primary-btn join-btn" id="joinJam">
+                        Join Jam Session →
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>♫ CampusBeats</p>
+                <p>Made with ❤️ for campus music lovers</p>
+                <p>Share what you love. Discover new sounds.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
