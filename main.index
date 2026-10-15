@@ -1,248 +1,143 @@
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusBeats - Campus Music Community</title>
+    <title>CampusBeats | Music Community</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="app">
+<div class="app">
+    <aside class="sidebar">
+        <h2 class="logo">♫ CampusBeats</h2>
+        <p class="menu-title">MAIN MENU</p>
+        <a href="#home" class="nav-link active">⌂ Home</a>
+        <a href="#songs" class="nav-link">♫ Discover Songs</a>
+        <a href="#playlist" class="nav-link">☷ My Playlist</a>
+        <a href="#jam" class="nav-link">🎸 Jam Sessions</a>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <span class="logo-icon">♫</span>
-                <span>CampusBeats</span>
+        <div class="sidebar-bottom">
+            <div class="big-note">♫</div>
+            <h3>Music brings us together!</h3>
+            <p>Discover songs, share music and enjoy your campus vibe.</p>
+        </div>
+    </aside>
+
+    <main class="main-content" id="home">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR CAMPUS, YOUR SOUND</p>
+                <h2>Hey, Music Lover! 👋</h2>
             </div>
+            <div class="profile">🎧 Campus Member</div>
+        </header>
 
-            <p class="menu-title">MENU</p>
-
-            <nav>
-                <a href="#home" class="nav-link active">⌂ Home</a>
-                <a href="#songs" class="nav-link">♫ Discover Songs</a>
-                <a href="#playlist" class="nav-link">☷ Shared Playlist</a>
-                <a href="#jam" class="nav-link">🎧 Jam Sessions</a>
-            </nav>
-
-            <div class="sidebar-bottom">
-                <div class="music-note">♫</div>
-                <h3>Music connects us!</h3>
-                <p>Discover songs and create memories together.</p>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-label">🎵 THE CAMPUS MUSIC HUB</span>
+                <h1>Good music.<br>Great friends.<br><span>Better memories.</span></h1>
+                <p>Discover Telugu hits, build playlists and connect with music lovers on your campus.</p>
+                <a href="#songs" class="primary-btn">Explore Songs →</a>
             </div>
-        </aside>
+            <div class="hero-art">
+                <div class="vinyl">♫</div>
+                <span class="note note1">♪</span>
+                <span class="note note2">♫</span>
+                <div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+        </section>
 
-        <!-- Main Content -->
-        <main class="main-content" id="home">
+        <section class="stats">
+            <div class="stat-card">
+                <span class="stat-icon purple">♫</span>
+                <div><p>Available Songs</p><h2 id="songCount">0</h2></div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon pink">👥</span>
+                <div><p>Jam Participants</p><h2 id="memberCount">0</h2></div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon orange">♡</span>
+                <div><p>Total Votes</p><h2 id="voteCount">0</h2></div>
+            </div>
+        </section>
 
-            <!-- Header -->
-            <header class="topbar">
+        <section id="songs" class="section">
+            <div class="section-heading">
                 <div>
-                    <p class="welcome">YOUR CAMPUS, YOUR SOUND</p>
-                    <h2>Hey, Music Lover! 👋</h2>
+                    <p class="eyebrow">FIND YOUR VIBE</p>
+                    <h2>Trending Telugu Hits 🔥</h2>
+                    <p class="muted">Discover your favorites and add them to your playlist.</p>
                 </div>
+            </div>
 
-                <div class="profile">
-                    <span class="online-dot"></span>
-                    <span>Campus Member</span>
-                    <div class="profile-avatar">🎵</div>
-                </div>
-            </header>
+            <div class="search-controls">
+                <input type="search" id="searchInput" placeholder="🔍 Search songs or movies...">
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="melody">Melody</option>
+                    <option value="romantic">Romantic</option>
+                    <option value="energetic">Energetic</option>
+                    <option value="mass">Mass</option>
+                </select>
+            </div>
 
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-content">
-                    <span class="hero-label">🎶 YOUR CAMPUS MUSIC HUB</span>
+            <div id="songGrid" class="song-grid"></div>
+        </section>
 
-                    <h1>Good music.<br>
-                        Great friends.<br>
-                        <span>Better memories.</span>
-                    </h1>
-
-                    <p>
-                        Discover your favorite Telugu hits, build a shared
-                        playlist, and join your campus jam sessions.
-                    </p>
-
-                    <a href="#songs" class="primary-btn">
-                        Explore Songs →
-                    </a>
-                </div>
-
-                <div class="hero-art">
-                    <div class="orbit orbit-one"></div>
-                    <div class="orbit orbit-two"></div>
-                    <div class="vinyl">♫</div>
-                    <div class="floating-note note-one">♪</div>
-                    <div class="floating-note note-two">♫</div>
-                    <div class="sound-bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Statistics -->
-            <section class="stats">
-                <div class="stat-card">
-                    <div class="stat-icon purple">♫</div>
+        <section class="lower-grid">
+            <div class="panel" id="playlist">
+                <div class="panel-heading">
                     <div>
-                        <p>Total Songs</p>
-                        <h2 id="songCount">0</h2>
+                        <p class="eyebrow">MADE TOGETHER</p>
+                        <h2>My Playlist 🎧</h2>
                     </div>
+                    <span id="playlistBadge" class="badge">0 songs</span>
                 </div>
+                <p class="muted">Your selected campus tracks appear here.</p>
+                <div id="playlistItems"></div>
+                <div id="emptyPlaylist" class="empty-state">
+                    <div class="empty-note">♫</div>
+                    <h3>Your playlist is waiting!</h3>
+                    <p>Add some songs to get started.</p>
+                </div>
+                <button id="clearPlaylist" class="secondary-btn">Clear Playlist</button>
+            </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon pink">👥</div>
+            <div class="panel" id="jam">
+                <p class="eyebrow">LET'S MAKE SOME NOISE</p>
+                <h2>Campus Jam Session 🎸</h2>
+                <div class="jam-banner">
+                    <div class="mic">🎤</div>
                     <div>
-                        <p>Jam Participants</p>
-                        <h2 id="memberCount">0</h2>
+                        <span class="live-label">● CAMPUS EVENT</span>
+                        <h3>Friday Music Meetup</h3>
+                        <p>Bring your friends and your vibe!</p>
                     </div>
                 </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon orange">♡</div>
-                    <div>
-                        <p>Total Votes</p>
-                        <h2 id="voteCount">0</h2>
-                    </div>
+                <div class="detail-row"><span>📍 Location</span><strong>College Music Corner</strong></div>
+                <div class="detail-row"><span>🕒 Time</span><strong>Friday, 4:00 PM</strong></div>
+                <div class="detail-row"><span>🎵 Status</span><strong id="jamStatus">Open to Join</strong></div>
+                <div class="participants">
+                    <div id="avatars" class="avatars"><span>🎧</span><span>🎸</span><span>🎤</span></div>
+                    <p id="participantText">Be the first to join!</p>
                 </div>
-            </section>
+                <button id="joinJam" class="primary-btn join-btn">Join Jam Session →</button>
+            </div>
+        </section>
 
-            <!-- Telugu Songs -->
-            <section class="songs-section" id="songs">
-                <div class="section-heading">
-                    <div>
-                        <p class="section-subtitle">FIND YOUR VIBE</p>
-                        <h2>Trending Telugu Hits 🔥</h2>
-                        <p class="section-description">
-                            Pick your favorites and add them to the campus playlist.
-                        </p>
-                    </div>
-                </div>
+        <footer class="footer">
+            <h3>♫ CampusBeats</h3>
+            <p>Made with ❤️ for campus music lovers.</p>
+            <p>Share what you love. Discover new sounds.</p>
+        </footer>
+    </main>
+</div>
 
-                <!-- Search and Filter -->
-                <div class="search-controls">
-                    <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="🔍 Search Telugu songs or movies..."
-                    >
+<div id="toast" class="toast"></div>
 
-                    <select id="categoryFilter">
-                        <option value="all">All Songs</option>
-                        <option value="melody">Melody</option>
-                        <option value="romantic">Romantic</option>
-                        <option value="energetic">Energetic</option>
-                        <option value="mass">Mass</option>
-                    </select>
-                </div>
-
-                <!-- Songs appear here through JavaScript -->
-                <div class="song-grid" id="songGrid"></div>
-            </section>
-
-            <!-- Playlist and Jam Session -->
-            <section class="lower-grid">
-
-                <!-- Shared Playlist -->
-                <div class="panel" id="playlist">
-                    <div class="panel-heading">
-                        <div>
-                            <p class="section-subtitle">MADE TOGETHER</p>
-                            <h2>Shared Playlist 🎧</h2>
-                        </div>
-
-                        <span class="playlist-badge" id="playlistBadge">0 songs</span>
-                    </div>
-
-                    <p class="section-description">
-                        Songs selected by your campus community.
-                    </p>
-
-                    <div id="playlistItems" class="playlist-items"></div>
-
-                    <div id="emptyPlaylist" class="empty-state">
-                        <div class="empty-icon">♫</div>
-                        <h3>Your playlist is waiting!</h3>
-                        <p>Add songs from Trending Telugu Hits to get started.</p>
-                    </div>
-
-                    <button class="clear-btn" id="clearPlaylist">
-                        Clear Playlist
-                    </button>
-                </div>
-
-                <!-- Jam Session -->
-                <div class="panel jam-panel" id="jam">
-                    <p class="section-subtitle">LET'S MAKE SOME NOISE</p>
-                    <h2>Campus Jam Session 🎸</h2>
-
-                    <div class="jam-banner">
-                        <div class="jam-emoji">🎤</div>
-                        <div>
-                            <span class="live-label">● CAMPUS JAM</span>
-                            <h3>Friday Music Meetup</h3>
-                            <p>Bring your friends. Bring your vibe.</p>
-                        </div>
-                    </div>
-
-                    <div class="jam-details">
-                        <div class="detail-row">
-                            <span>📍 Location</span>
-                            <strong>College Music Corner</strong>
-                        </div>
-
-                        <div class="detail-row">
-                            <span>🕒 Time</span>
-                            <strong id="jamTime">Friday, 4:00 PM</strong>
-                        </div>
-
-                        <div class="detail-row">
-                            <span>🎵 Status</span>
-                            <strong id="jamStatus">Open to Join</strong>
-                        </div>
-                    </div>
-
-                    <div class="participants">
-                        <div class="avatars" id="avatars">
-                            <span>🎧</span>
-                            <span>🎸</span>
-                            <span>🎤</span>
-                        </div>
-
-                        <p id="participantText">Join your campus music crew!</p>
-                    </div>
-
-                    <button class="primary-btn join-btn" id="joinJam">
-                        Join Jam Session →
-                    </button>
-                </div>
-
-            </section>
-
-            <!-- Footer -->
-            <footer class="footer">
-                <p>♫ CampusBeats</p>
-                <p>Made with ❤️ for campus music lovers</p>
-                <p>Share what you love. Discover new sounds.</p>
-            </footer>
-
-        </main>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
